@@ -15,7 +15,7 @@ func merge(m1, m2 map[int]int) map[int]int {
 	return ans
 }
 
-func factor(num, pnum int) {
+func factor(num, pnum int) map[int]int {
 	result := make(map[int]int)
 	if pnum*pnum > num {
 		if num != 1 {
@@ -30,5 +30,5 @@ func factor(num, pnum int) {
 	} else {
 		pnum++
 	}
-	return merge(result, factoring(num, pnum))
+	return merge(result, factor(num, pnum))
 }
