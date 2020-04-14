@@ -1,22 +1,11 @@
 package math
 
 func FactoredPrimeNumber(num int) map[int]int {
-	return factor(num, 2)
+	m := map[int]int{}
+	return factor(m, num, 2)
 }
 
-func merge(m1, m2 map[int]int) map[int]int {
-	ans := map[int]int{}
-	for k, v := range m1 {
-		ans[k] += v
-	}
-	for k, v := range m2 {
-		ans[k] += v
-	}
-	return ans
-}
-
-func factor(num, pnum int) map[int]int {
-	result := make(map[int]int)
+func factor(result map[int]int, num, pnum int) map[int]int {
 	if pnum*pnum > num {
 		if num != 1 {
 			result[num] += 1
@@ -30,5 +19,5 @@ func factor(num, pnum int) map[int]int {
 	} else {
 		pnum++
 	}
-	return merge(result, factor(num, pnum))
+	return factor(result, num, pnum)
 }
