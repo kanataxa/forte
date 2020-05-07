@@ -1,5 +1,16 @@
 package math
 
+func GCD(a, b int) int {
+	if b == 0 {
+		return a
+	}
+	return GCD(b, a%b)
+}
+
+func LCM(a, b int) int {
+	return a * b / GCD(a, b)
+}
+
 func FactoredPrimeNumber(num int) map[int]int {
 	m := map[int]int{}
 	return factor(m, num, 2)
