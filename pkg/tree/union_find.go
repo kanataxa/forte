@@ -1,4 +1,4 @@
-package math
+package tree
 
 type UnionFind struct {
 	par  []int
